@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Device, DeviceInfo } from '@capacitor/device';
+
 
 @Component({
   selector: 'app-device',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent  implements OnInit {
 
+  deviceInfo?: DeviceInfo
+  battery?: string;
+
+
   constructor() { }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.deviceInfo = await Device.getInfo();
+    console.log(this.deviceInfo);
+
+    const info = await Device.getBatteryInfo()
+    if(info.batteryLevel){
+      this.battery = `${(info.batteryLevel * 100).toFixed()}%`;
+    }
+  }
 
 }

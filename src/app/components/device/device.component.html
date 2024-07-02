@@ -6,3 +6,21 @@
     <ion-title>device</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ deviceInfo?.name }} </ion-card-title>
+      <!-- <ion-card-subtitle>{{  deviceInfo?.manufacturer +" "+ deviceInfo?.model}}</ion-card-subtitle> -->
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item><ion-icon name="phone-portrait"></ion-icon> modelo: {{ deviceInfo?.model }}</ion-item>
+      <ion-item><ion-icon name="pricetag"></ion-icon> marca: {{ deviceInfo?.manufacturer }}</ion-item>
+      <ion-item><ion-icon name="logo-android"></ion-icon> sistema operacional: {{ deviceInfo?.operatingSystem +" "+ deviceInfo?.osVersion }}</ion-item>
+      <ion-item><ion-icon name="logo-flash"></ion-icon> bateria: {{ battery }}</ion-item>
+    </ion-card-content>
+
+
+  </ion-card>
+</ion-content>
